@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>드롭메뉴 연습</title>
+    <style>
+        .dropmenu1{
+            border:none;
+            border:0px;
+            margin:0px;
+            padding:0px;
+            font: "sans-serif";
+            font-size:18px;
+        }
+
+        .dropmenu1 ul{
+            background: #666;
+            height:100px;
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+
+        .dropmenu1 li{
+            float:left;
+            padding:0px;
+        }
+
+        .dropmenu1 li a{
+            background: #666;
+            color:#fff;
+            display:block;
+            line-height:100px;
+            margin:0px;
+            padding:0px 25px;
+            text-align:center;
+            text-decoration:none;
+        }
+
+        .dropmenu1 li a:hover, .dropmenu1 ul li:hover a{
+            background: rgb(31,31,31);
+            color:#FFFFFF;
+            text-decoration:none;
+        }
+
+        .dropmenu1 li ul{
+            background: green;
+            display:none; 
+            height:auto;
+            border:0px;
+            position:absolute;
+            width:200px;
+            z-index:200;
+            /*top:1em;
+            /*left:0;*/
+        }
+
+        .dropmenu1 li:hover ul{
+             display:block;
+        }
+
+        .dropmenu1 li li {
+            background: green;
+            display:block;
+            float:none;
+            margin:0px;
+            padding:0px;
+            width:200px;
+        }
+
+        .dropmenu1 li:hover li a{
+            background:none;
+        }
+
+        .dropmenu1 li ul a{
+            display:block;
+            height:80px;
+            font-size:14px;
+            margin:0px;
+            padding:0px 10px 0px 15px;
+            text-align:left;
+        }
+
+        .dropmenu1 li ul a:hover, .dropmenu1 li ul li:hover a{
+            background: rgb(171,171,171);
+            border:0px;
+            color:#ffffff;
+            text-decoration:none;
+        }
+
+        .dropmenu1 p{
+            clear:left;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropmenu1">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#" id="current">메뉴</a>
+                <ul>
+                    <li><a href="#">하위메뉴1</a></li>
+                    <li><a href="#">하위메뉴2</a></li>
+                    <li><a href="#">하위메뉴3</a></li>
+                </ul>
+            </li>
+            <li><a href="#">메뉴</a>
+                <ul>
+                    <li><a href="#">하위메뉴1</a></li>
+                    <li><a href="#">하위메뉴2</a></li>
+                    <li><a href="#">하위메뉴3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
