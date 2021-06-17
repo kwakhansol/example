@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span>팝업연습1</span>
+    <div id="popup-cookie">
+        <img src="popup.png"/>
+        <div>
+            <ul class="clfix">
+                <li><a href="javascript:;" onclick="todaycloseWin();" alt="오늘 하루 열지 않기">오늘 하루 열지 않기</a></li>
+                <li><a href="javascript:;" onclick="closeWin();" alt="닫기">닫기</a></li>
+            </ul>
+        </div>
+        <hr>
+        <span>팝업연습2</span>    
+        <aside class="popup" id="popupWrap">
+            <div class="inner" id="popup_1">
+                <div class="area">
+                    <img src="popup.png" alt="배너이미지1">
+                </div>
+                <button type="button" onClick="PopupNoDisplay_1()">
+                    <span>하루동안 보지않기</span>
+                </button>
+                <button type="button" onClick="PopupHide();">[닫기]</button>
+            </div> 
+            <div class="popupbg" style="background:gray;"></div>
+        </aside>
+
+
+    </div>
+     
+     
+    <!-- 스크립트1 -->
+    <script language="Javascript">
+        $( document ).ready(function() {
+                cookiedata = document.cookie;
+     
+            if ( cookiedata.indexOf("ncookie=done") < 0 ){
+                document.getElementById('popup-cookie').style.display = "block";
+            $("#wrap").prepend('<div id="dimm-cookie" onclick="dimm_close();" class="black" />');
+                } else {
+                document.getElementById('popup-cookie').style.display = "none";
+            }
+        });
+     
+            function setCookie( name, value, expiredays ) { 
+                var todayDate = new Date();
+            todayDate.setDate( todayDate.getDate() + expiredays );
+            document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+        }
+     
+            function closeWin() {
+                document.getElementById('popup-cookie').style.display = "none";
+            $("#dimm-cookie").remove();
+        }
+     
+            function todaycloseWin() {
+                setCookie("ncookie", "done", 1);
+            document.getElementById('popup-cookie').style.display = "none";
+            $("#dimm-cookie").remove();
+        }
+     
+            function dimm_close() {
+                $("#dimm-cookie").remove();
+            document.getElementById('popup-cookie').style.display = "none";
+        }
+
+
+        // 팝업2
+        $(document).ready(function () {
+            $('.popup').show();
+            cookiedata = document.cookie;
+            if ( cookiedata.indexOf("popup_1=done") < 0 ){ //쿠키 변경 여부 불러오기
+                document.all['popup_1'].style.visibility = "visible";
+            } else { document.all['popup_1'].style.display = "none";
+            } PopupBgDisplay();
+        });
+        function PopupNoDisplay_1() {
+            setCookie("popup_1", "done", 1); //쿠키값 변경
+            PopupHide(); } function PopupHide() { //팝업창 지우기
+                 $('#popup_1').hide(); PopupBgDisplay();
+                }
+        function PopupBgDisplay() { //팝업창이 없어진 경우 배경(popupbg) 지우기
+            cookiedata1 = document.cookie;
+            if (cookiedata1.indexOf("popup_1=done") > 0)
+            {
+                $("#popupWrap").hide();
+            }
+        }
+    </script>
+</body>
+</html>
+
+
